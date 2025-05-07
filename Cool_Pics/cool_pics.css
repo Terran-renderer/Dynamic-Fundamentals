@@ -11,7 +11,8 @@ a{
     text-decoration: none;
     background-color: brown;
     min-width: 200px;
-    margin: 10em;
+
+    display:block;
 }
 
 a:hover{
@@ -32,12 +33,15 @@ img{
         background-color: navy;
     }
     a {
-        margin: 1rem auto;
+        display:inline;
     }
 }
 
 @media screen and (min-width:1500px){
     footer, main{
         background-color: black;
+    }
+    a {
+        display:inline;
     }
 }
