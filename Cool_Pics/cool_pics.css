@@ -27,7 +27,7 @@ img{
     border: white 10px solid;
 }
 
-@media screen and (min-width:600px){
+@media screen and (min-width:980px){
     footer, main{
         background-color: navy;
     }
@@ -36,7 +36,7 @@ img{
     }
 }
 
-@media screen and (min-width:1300px){
+@media screen and (min-width:1500px){
     footer, main{
         background-color: black;
     }
