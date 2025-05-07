@@ -11,7 +11,6 @@ a{
     text-decoration: none;
     background-color: brown;
     min-width: 200px;
-
     display:block;
 }
 
@@ -27,13 +26,20 @@ img{
     margin:20px;
     border: white 10px solid;
 }
+button{
+    cursor: default;
+    background: none;
+    outline: none;
+    padding:none;
+    border:none;
+}
 
 @media screen and (min-width:980px){
     footer, main{
         background-color: navy;
     }
     a {
-        display:inline;
+        display:none;
     }
 }
 
@@ -43,5 +49,7 @@ img{
     }
     a {
         display:inline;
+        margin:none;
+        padding:2px;
     }
 }
