@@ -1,0 +1,43 @@
+header, main, footer{
+    text-align:center;
+    margin: 1rem auto;
+    padding: 2px;
+    background-color: maroon; 
+    color: white;
+}
+
+a{
+    color:white;
+    text-decoration: none;
+    background-color: brown;
+    min-width: 200px;
+    margin: 10em;
+}
+
+a:hover{
+    background-color: maroon;
+}
+
+figure{
+    display:inline;
+}
+img{
+    max-width: 100%;
+    margin:20px;
+    border: white 10px solid;
+}
+
+@media screen and (min-width:600px){
+    footer, main{
+        background-color: navy;
+    }
+    a {
+        margin: 1rem auto;
+    }
+}
+
+@media screen and (min-width:1300px){
+    footer, main{
+        background-color: black;
+    }
+}
