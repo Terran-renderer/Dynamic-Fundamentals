@@ -1,3 +1,9 @@
+/*Variables*/
+:root{
+    --primary-font: Arial;
+    --accent-color: beige;
+}
+
 header, main, footer{
     text-align:center;
     margin: 1rem auto;
@@ -5,6 +11,14 @@ header, main, footer{
     background-color: maroon; 
     color: white;
 }
+
+body {
+    font-family: var(--primary-font);
+    font-size: 1.2em;
+  }
+a:visited {
+    color: var(--accent-color);
+  }
 
 a{
     color:white;
@@ -25,6 +39,8 @@ img{
     max-width: 100%;
     margin:20px;
     border: white 10px solid;
+    height: 250px;
+    object-fit:cover;
 }
 button{
     cursor: default;
