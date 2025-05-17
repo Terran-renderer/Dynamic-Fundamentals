@@ -11,10 +11,10 @@
 <body>
     <header> 
         <h1>Cool Pics 📷</h1>
-        <button>
+        <button id = "butte">
             <h2>Menu</h2>
         </button>
-        <nav>
+        <nav class="hide">
             <a href="#">Home</a>
             <a href="#">People</a>
             <a href="#">Places</a>
@@ -23,36 +23,39 @@
     </header>
     <main>
         Current Work
-        <section class="gallery">
+        <div class="gallery">
             <figure>
-                <img src="norris-sm.jpeg" alt="picture">
+                <img src="norris-sm.jpeg" alt="picture1">
             </figure>
             <figure>
-                <img src="norris-sm.jpeg" alt="picture">
+                <img src="norris-sm.jpeg" alt="picture2">
             </figure>
             <figure>
-                <img src="norris-sm.jpeg" alt="picture">
+                <img src="norris-sm.jpeg" alt="picture3">
             </figure>
             <figure>
-                <img src="norris-sm.jpeg" alt="picture">
+                <img src="norris-sm.jpeg" alt="picture4">
             </figure>
             <figure>
-                <img src="norris-sm.jpeg" alt="picture">
+                <img src="norris-sm.jpeg" alt="picture5">
             </figure>
             <figure>
-                <img src="norris-sm.jpeg" alt="picture">
+                <img src="norris-sm.jpeg" alt="picture6">
             </figure>
             <figure>
-                <img src="norris-sm.jpeg" alt="picture">
+                <img src="norris-sm.jpeg" alt="picture7">
             </figure>
             <figure>
-                <img src="norris-sm.jpeg" alt="picture">
+                <img src="norris-sm.jpeg" alt="picture8">
             </figure>
             <figure>
-                <img src="norris-sm.jpeg" alt="picture">
+                <img src="norris-sm.jpeg" alt="picture9">
             </figure>
-
-        </section>
+        </div>
+        <dialog id="image-modal">
+            <img id="modal-image" src="" alt="">
+            <button class="close-viewer">X</button>
+        </dialog>
     </main>
     <footer>Copyright 2023 - Not a real site</footer>
 </body>

@@ -1,7 +1,7 @@
 /*Variables*/
 :root{
     --primary-font: Arial;
-    --accent-color: beige;
+    --accent-color: black;
 }
 
 header, main, footer{
@@ -28,6 +28,10 @@ a{
     display:block;
 }
 
+.hide {
+    display:none;
+}
+
 a:hover{
     background-color: maroon;
 }
@@ -49,12 +53,32 @@ button{
     padding:none;
     border:none;
 }
+  
+#image-modal img {
+    max-width: 150%;
+    height: 50vh;
+    display: block;
+    background-color: rgba(0,0,0,.6);
+    margin:20vh auto;
+    z-index:10;
+  }
+.close-viewer {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.2rem;
+    background: red;
+    color: white;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+  }
 
 @media screen and (min-width:980px){
     footer, main{
         background-color: navy;
     }
-    a {
+    .hide {
         display:none;
     }
 }
@@ -67,5 +91,11 @@ button{
         display:inline;
         margin:none;
         padding:2px;
+    }
+    h2{
+        display:none;
+    }
+    .hide{
+        display:block;
     }
 }
