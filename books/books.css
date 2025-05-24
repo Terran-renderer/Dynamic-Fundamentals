@@ -1,0 +1,104 @@
+@import url(https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@400..700&family=Monsieur+La+Doulaise&display=swap);
+
+:root {
+  --primary-color: #F5F5F5;
+  --secondary-color:#F8E7F6;
+  --tertiary-color: #DD88CF;
+  --accent1-color: #4B164C;
+
+  --heading-font: "Monsieur La Doulaise", serif;
+  --paragraph-font: "bebas neue",serif;
+
+  --headline: #4B164C ;
+  --headline-text: white;
+
+  --nav-link-color:white ;
+  --nav-background-color: #4B164C;
+  --nav-hover-link-color: #4B164C;
+  --nav-hover-background-color: white;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(128, 128, 128, 0.6);
+  z-index: 1000;
+  display: none;
+}
+
+nav{
+  /*border: var(--paragraph-background-color) 2px solid;*/
+  background-color: var(--nav-background-color);
+  text-align: right;
+  padding: 1.5em;
+}
+
+h1{
+  text-align: center;
+}
+
+a{
+  text-decoration: none;
+  color: var(--nav-link-color);
+  padding:2em;
+}
+
+a:hover{
+  background-color:var(--nav-hover-background-color);
+  color:var(--nav-hover-link-color);
+}
+
+main{
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: repeat(2, 30em);
+  display:grid;
+  margin-top: 2em;
+}
+
+.filters{
+  position:fixed;
+  align-self: right;
+  justify-self:end;
+}
+
+#bookOne{
+  grid-column:1/2;
+  grid-row: 1/2;
+  justify-items:center;
+}
+
+#bookTwo{
+  grid-column:1/2;
+  grid-row: 2/3;
+  justify-items:center;
+}
+
+#coverOne{
+  grid-column: 2/3;
+  grid-row: 1/2;
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+#coverTwo{
+  grid-column: 2/3;
+  grid-row: 2/3;
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+.urmom{
+  grid-column: 3/4;
+  text-align: center;
+  margin-bottom: 2em;
+  margin-top: 2em;
+  border:#4B164C 2px solid;
+  padding: 0%;
+}
+
+img{
+  max-height: 25em;
+}
