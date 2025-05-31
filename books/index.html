@@ -17,31 +17,10 @@
 <body>
     <div class="overlay" id="overlay"></div>
     <main>
-        <div id = "bookOne">
-            <p class="date">July 5, 2022</p>
-            <p class="age">10-14</p>
-            <p class="genre">Fantasy</p>
-            <p class="rating">*****</p>
-        </div>
 
-        <div id = "coverOne">
-            <h2 class="title">Septimus Heap Book One: Magyk</h2>
-            <img src = "https://upload.wikimedia.org/wikipedia/en/5/5f/Magkycover2.jpg"  alt="Magyk Cover">
-        </div>
+        <div id="bookContainer"></div>
+        <div id="cover"></div>
 
-        <div id = "bookTwo">
-            <p class="date">July 5, 2022</p>
-            <p class="age">10-14</p>
-            <p class="genre">Fantasy</p>
-            <p class="rating">*****</p>
-        </div>
-
-        <div id="coverTwo">
-            <h2 class="title">Magnus Chase Book One: Sword of Summer</h2>
-            <img src = "https://books.google.com/books/content/images/frontcover/xWuyBAAAQBAJ?fife=w300"  alt="Magnus Chase Cover">
-        </div>
-
-        </div>
         <div class = "filters">
             <div class = "urmom">
                 <p>newest</p>
@@ -53,7 +32,7 @@
 
             <div class = "urmom">
                 <p>age</p>
-                <select class="age" alt="age rating filter">
+                <select class="ageFilter" alt="age rating filter">
                     <option value="10">10</option>
                     <option value="11">11</option>
                     <option value="12">12</option>
@@ -68,7 +47,7 @@
 
             <div class = "urmom">
                 <p>genre</p>
-                <select class="genre" alt="genre filter">
+                <select class="genreFilter" alt="genre filter">
                     <option value="fiction">Fiction</option>
                     <option value="non-fiction">Non-fiction</option>
                 </select>
@@ -76,7 +55,7 @@
 
             <div class = "urmom">
                 <p>rating</p>
-                <select class="rating" alt="rating filter">
+                <select class="ratingFilter" alt="rating filter">
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
