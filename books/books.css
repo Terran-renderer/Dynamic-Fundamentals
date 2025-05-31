@@ -53,41 +53,26 @@ a:hover{
 
 main{
   grid-template-columns: 1fr 2fr 1fr;
-  grid-template-rows: repeat(2, 30em);
   display:grid;
   margin-top: 2em;
 }
+
+.article{
+  grid-column: 1/2;
+  text-align: right;
+  margin:20px;
+}
+
+.coverInfo{
+  grid-column: 2/3;
+  text-align: center;
+}
+
 
 .filters{
   position:fixed;
   align-self: right;
   justify-self:end;
-}
-
-#bookOne{
-  grid-column:1/2;
-  grid-row: 1/2;
-  justify-items:center;
-}
-
-#bookTwo{
-  grid-column:1/2;
-  grid-row: 2/3;
-  justify-items:center;
-}
-
-#coverOne{
-  grid-column: 2/3;
-  grid-row: 1/2;
-  text-align: center;
-  margin-bottom: 2em;
-}
-
-#coverTwo{
-  grid-column: 2/3;
-  grid-row: 2/3;
-  text-align: center;
-  margin-bottom: 2em;
 }
 
 .urmom{
@@ -101,4 +86,33 @@ main{
 
 img{
   max-height: 25em;
+  grid-column: 2/3;
+}
+
+.title{
+  grid-column: 2/3;
+  align-items: center;
+}
+
+.date{
+  grid-column: 1/2;
+}
+
+.age{
+  grid-column: 1/2;
+}
+
+.genre{
+  grid-column: 1/2;
+}
+
+.rating{
+  grid-column: 1/2;
+  padding-bottom: 25em;
+}
+
+.description{
+  grid-column: 2/3;
+  padding-bottom: 5em;
+  font-size: large;
 }
