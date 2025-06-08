@@ -1,0 +1,61 @@
+#creditCardForm{
+    background-color: grey;
+    width: 400px;
+    height: 250px;
+    text-transform: uppercase;
+    padding:20px;
+    font-size: x-large;
+    box-shadow: 0 4px 8px black;
+    z-index: 2;
+    border-radius: 25px;
+}
+
+#creditCardForm input{
+    border: 2px solid black;
+    font-size:large;
+}
+
+.cardImage{
+    margin-left: 325px;
+}
+
+#back{
+    background-color: grey;
+    position: relative;
+    margin-top: -175px;
+    margin-left: 100px;
+    width: 450px;
+    height: 300px;
+    z-index: -2;
+    border-radius: 25px;
+}
+
+#back label{
+    position: fixed;
+    margin-top: 200px;
+    margin-left: 325px;
+}
+
+#back input{
+    position: fixed;
+    margin-top: 225px;
+    margin-left: 325px;
+}
+
+#bar{
+    position: fixed;
+    margin-left: auto;
+    margin-top: -150px;
+    background-color: black;
+    width:550px;
+    height: 50px;
+    z-index: -1;
+}
+
+#holder{
+    margin-right: 50px;
+}
+
+#expM{
+    margin-left: 75px;
+}
