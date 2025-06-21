@@ -1,0 +1,149 @@
+ @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap');
+ :root {
+ --primary-color: #1B98E0;
+ --secondary-color: #59c3c3;
+ --text-dark: #333;
+ --text-light: #ebebeb;
+ --primary-font: Arial, Helvetica,sans-serif;
+ --secondary-font: "Amatic SC";
+ }
+
+#logo{
+    max-width:10%;
+}
+
+#searchIconButton{
+    max-width:3em;
+    flex-basis:5em;
+    background-color:var(--text-light);
+    padding-left: .5em;
+    padding-right: .5em;
+    border: solid 2px black;
+    border-radius: 5px;
+}
+
+#searchIcon{
+    max-width: 2%;
+}
+
+img {
+	max-width: 100%;
+}
+
+header{
+    justify-content:center;
+    display:flex;
+    flex-wrap: wrap;
+    margin-bottom: 5em;
+}
+
+#searchbar{
+    height: 2em;
+    border-radius: 5px;
+}
+
+#searchField{
+    display: flex;
+    justify-content:center;
+    max-height: 50%;
+}
+
+#flexboxMain{
+    display: flex;
+    justify-content: space-around;
+}
+
+#recipeField{
+    margin-top: 2em;
+    margin-bottom: 2em;;
+    padding: 2em;
+    max-width: 75%;;
+    border: solid 2px black;
+    border-radius: 25px;
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    
+}
+
+h2{
+    font-size: xx-large;
+    font-family: var(--secondary-font);
+    order:2;
+    align-self:flex-start;
+}
+
+#linklol{
+    max-height: 3em;
+    order:1;
+    align-self:flex-start;
+    margin-top: 2em;
+}
+#linklol a{
+    font-family: var(--primary-font);
+    text-decoration: none;
+}
+#recipeField img{
+    justify-self: center;
+    flex-basis: auto;
+    order:0;
+}
+
+#hidden{
+    display:none;
+    order:4;
+}
+
+.rating{
+    order:5;
+}
+.social{
+    text-align: center;
+}
+.social img{
+    height: 2em;
+}
+
+@media only screen and (min-width:600px){
+    #recipeField{
+        display:flex;
+        flex-direction:row;
+        flex-wrap: nowrap;
+    }
+    h2{
+        font-size: xx-large;
+        font-family: var(--secondary-font);
+        order:2;
+        align-self:flex-start;
+    }
+
+    #linklol{
+        max-height: 3em;
+        order:1;
+        align-self:space-around;
+        margin-top: 2em;
+    }
+    #linklol a{
+        font-family: var(--primary-font);
+        text-decoration: none;
+    }
+    #recipeField img{
+        justify-self: center;
+        flex-basis: auto;
+        order:0;
+        margin-right: 2em;
+    }
+    #content{
+        display: flex;
+        flex-direction: column;
+    }
+    #hidden{
+        display:flex;
+        order:4;
+    } 
+    .social{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
