@@ -48,54 +48,43 @@ header{
     max-height: 50%;
 }
 
-#flexboxMain{
-    display: flex;
-    justify-content: space-around;
-}
-
-#recipeField{
+.recipe{
     margin-top: 2em;
-    margin-bottom: 2em;;
+    margin-bottom: 2em;
     padding: 2em;
-    max-width: 75%;;
+    max-width: 75%;
+    max-height: 11em;
     border: solid 2px black;
     border-radius: 25px;
     display:flex;
-    flex-wrap: wrap;
     flex-direction: column;
-    
+    flex-wrap: wrap;
+    align-items:flex-start;
+}
+
+.tag-btn{
+    justify-self: flex-start;
 }
 
 h2{
     font-size: xx-large;
     font-family: var(--secondary-font);
     order:2;
-    align-self:flex-start;
+    margin-left: 1.2em;
 }
 
-#linklol{
-    max-height: 3em;
-    order:1;
-    align-self:flex-start;
-    margin-top: 2em;
-}
-#linklol a{
-    font-family: var(--primary-font);
-    text-decoration: none;
-}
-#recipeField img{
-    justify-self: center;
-    flex-basis: auto;
-    order:0;
+.recipe img{
+    order:-2;
 }
 
-#hidden{
+.description{
     display:none;
     order:4;
 }
 
 .rating{
     order:5;
+    margin-left: 2.3em;
 }
 .social{
     text-align: center;
@@ -104,43 +93,47 @@ h2{
     height: 2em;
 }
 
-@media only screen and (min-width:600px){
-    #recipeField{
+li{
+    display: inline-block;
+    list-style-type: none;
+    margin-left: 0%;
+
+}
+@media only screen and (min-width:1200px){
+    .recipe{
+        margin-top: 2em;
+        margin-bottom: 2em;
+        padding: 2em;
+        max-width: 75%;
+        max-height: 11em;
+        border: solid 2px black;
+        border-radius: 25px;
         display:flex;
-        flex-direction:row;
-        flex-wrap: nowrap;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items:flex-start;
     }
+
+    .tag-btn{
+        justify-self: flex-start;
+    }
+
     h2{
         font-size: xx-large;
         font-family: var(--secondary-font);
         order:2;
-        align-self:flex-start;
+        margin-left: 1.2em;
     }
 
-    #linklol{
-        max-height: 3em;
-        order:1;
-        align-self:space-around;
-        margin-top: 2em;
+    .recipe img{
+        flex-basis: 200px;
+        order:-2;
     }
-    #linklol a{
-        font-family: var(--primary-font);
-        text-decoration: none;
-    }
-    #recipeField img{
-        justify-self: center;
-        flex-basis: auto;
-        order:0;
-        margin-right: 2em;
-    }
-    #content{
-        display: flex;
-        flex-direction: column;
-    }
-    #hidden{
-        display:flex;
+
+    .description{
+        display: contents;
         order:4;
-    } 
+    }
     .social{
         display: flex;
         flex-direction: row;

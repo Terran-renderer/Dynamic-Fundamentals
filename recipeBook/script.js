@@ -7,7 +7,7 @@ const recipes = [
 		datePublished: '2016-10-16',
 		tags: ['Waffles', 'Sweet Potato', 'Side'],
 		description: 'Savory waffles made with Sweet potato with a hint of Ginger',
-		image: './images/sweet-potato-waffle-md.jpg',
+		image: './img/sweet-potato-waffle-md.jpg',
 		recipeIngredient: [
 			'2 separated eggs',
 			'1/4 C Oil',
@@ -43,7 +43,7 @@ const recipes = [
 		tags: ['Chicken', 'Entree'],
 		description:
 			'Delicious quick and easy creamy rice dish. The mustard, mushrooms, and lemon all blend together wonderfully',
-		image: './images/escalopes-de-poulet-a-la-creme.webp',
+		image: './img/escalopes-de-poulet-a-la-creme.webp',
 		recipeIngredient: [
 			'2 Chicken Tenders, Cubed',
 			'4 Mushrooms, Sliced',
@@ -75,7 +75,7 @@ const recipes = [
 		tags: ['Potatoes', 'side'],
 		description:
 			'Easy and delicious oven roasted potatoes that go great with almost anything.',
-		image: './images/roasted-potatoes.webp',
+		image: './img/roasted-potatoes.webp',
 		recipeIngredient: [
 			'3-4 Medium Potatoes',
 			'1 Tbsp Olive oil',
@@ -105,7 +105,7 @@ const recipes = [
 		tags: ['Southwest', 'entree'],
 		description:
 			'Black beans and tomatoes served over a bed of rice. Top with cheese and scoop up with tortilla chips for maximum enjoyment.',
-		image: './images/black-beans-and-rice.jpg',
+		image: './img/black-beans-and-rice.jpg',
 		recipeIngredient: [
 			'1 Medium Onion, diced',
 			'2 Cloves Garlic, minced',
@@ -138,7 +138,7 @@ const recipes = [
 		tags: ['chicken', 'entree', 'Indian'],
 		description:
 			'Quick and easy Chicken curry recipe made with easy to find ingredients.',
-		image: './images/chicken-curry.webp',
+		image: './img/chicken-curry.webp',
 		recipeIngredient: [
 			'4 Slices Bacon',
 			'1 clove Garlic',
@@ -175,7 +175,7 @@ const recipes = [
 		datePublished: '2018-09-19',
 		tags: ['dessert'],
 		description: 'Delicious soft chocolate chip cookies with coconut.',
-		image: './images/chocolate-chip-cookies.jpg',
+		image: './img/chocolate-chip-cookies.jpg',
 		recipeIngredient: [
 			'1 Lb butter, softened',
 			'1 C white sugar',
@@ -210,7 +210,7 @@ const recipes = [
 		tags: ['dessert', 'German'],
 		description:
 			"This gooseberry cake with crumble is easy to follow, a bit tart and not too sweet. Made up of a cake base, filled with fresh gooseberries and vanilla cream and finished off with crumble that's flavored with vanilla. A must have recipe for gooseberry lovers!!",
-		image: './images/german-gooseberry-cake.jpg',
+		image: './img/german-gooseberry-cake.jpg',
 		recipeIngredient: [
 			'For the Cake Base:',
 			'180 g (1 ½ cups/ 6.3 oz) plain flour',
@@ -253,7 +253,7 @@ const recipes = [
 		tags: ['dessert'],
 		description:
 			"This apple crisp recipe is a simple yet delicious fall dessert that's great served warm with vanilla ice cream.",
-		image: './images/apple-crisp.jpg',
+		image: './img/apple-crisp.jpg',
 		recipeIngredient: [
 			'10 C apples, cored and sliced',
 			'1 C white sugar',
@@ -278,4 +278,71 @@ const recipes = [
 		recipeYield: '12 servings',
 		rating: 4
 	}
-]
+] 
+
+    function recipeTemplate(recipe) {
+      return `
+        <div class="recipe">
+			<div class="imagePlacer">
+          		<img src="${recipe.image}" alt="${recipe.name}" width="150" height="150" />
+			</div>
+			<h2>${recipe.name}</h2>
+			<p class="description">${recipe.description}</p>
+			<ul class="tags">${tagsTemplate(recipe.tags)}</ul>
+			<div class="rating">${ratingTemplate(recipe.rating)}</div>
+        </div>
+      `;
+    }
+
+    function tagsTemplate(tags) {
+      return tags.map(tag => `<li><button class="tag-btn" type="button">${tag}</button></li>`).join("");
+    }
+
+    function ratingTemplate(rating) {
+      const full = "⭐".repeat(Math.floor(rating));
+      const half = rating % 1 >= 0.5 ? "☆" : "";
+      return `${full}${half}`;
+    }
+
+    function renderRecipes(recipesToRender) {
+		console.log("Rendering recipes:", recipes);
+      const container = document.getElementById("renderedArea");
+      if (recipesToRender.length === 0) {
+        container.innerHTML = "<p>No recipes found.</p>";
+        return;
+      }
+      container.innerHTML = recipesToRender.map(recipeTemplate).join("");
+    }
+
+    // Filter function
+    function filterFunction(query) {
+      const q = query.toLowerCase();
+      return recipe =>
+        recipe.name.toLowerCase().includes(q) ||
+        recipe.tags.some(tag => tag.toLowerCase().includes(q));
+    }
+
+    function filter(query) {
+      const filtered = recipes.filter(filterFunction(query));
+      return filtered.sort((a, b) =>
+        a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1
+      );
+    }
+
+    // Search handler (listens on button click)
+    function searchHandler() {
+      const query = document.getElementById("searchInput").value.trim();
+      const results = filter(query);
+      renderRecipes(results);
+    }
+
+    document.getElementById("searchIconButton").addEventListener("click", searchHandler);
+
+    // Show all recipes initially sorted
+    function init() {
+      const sorted = recipes.slice().sort((a, b) =>
+        a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1
+      );
+      renderRecipes(sorted);
+    }
+    init();
