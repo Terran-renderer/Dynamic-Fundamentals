@@ -8,6 +8,7 @@ function mainLoop() {
         damage:20,
         gold:10,
         image:"img/tankkun.jpg",
+        deck: ["img/Heal.jpg", "img/punch.jpg", "img/flurry.jpg", "img/cast.jpg"]
     };
 
     const Joe = { 
@@ -17,7 +18,8 @@ function mainLoop() {
         health:50,
         damage:120,
         gold:10,
-        image:"img/assassain.jpg"
+        image:"img/assassain.jpg",
+        deck: ["img/Heal.jpg", "img/punch.jpg", "img/cast.jpg", "img/flurry.jpg", ]
     };
 
     const Legion = { 
@@ -27,7 +29,8 @@ function mainLoop() {
     health:100,
     damage: 30,
     gold:10,
-    image:"img/legion.jpg"
+    image:"img/legion.jpg",
+    deck: ["img/Heal.jpg", "img/punch.jpg", "img/flurry.jpg", "img/cast.jpg"]
     };
 
     const character = {
@@ -48,9 +51,11 @@ function mainLoop() {
     function pickTed() {
         Object.assign(character, Ted);
         console.log("Ted selected");
+        showDeck();
         hideChoices();
         showCard();
         displayCharacter();
+        
     };
 
     function pickJoe() {
@@ -68,6 +73,25 @@ function mainLoop() {
         showCard();
         displayCharacter();
     };
+
+    function showDeck(){
+        const modal = document.getElementById("deckModal");
+        const modalDeck = document.getElementById("modalDeck");
+        const closeButton = document.getElementById("closeModalButton");
+
+        modalDeck.innerHTML = "";
+
+        character.deck.forEach(cardSrc =>{
+            const tag = document.createElement("img");
+            tag.src = cardSrc;
+            modalDeck.appendChild(tag);
+        });
+
+        modal.showModal();
+
+        closeButton.onclick = () => modal.close();
+
+    }
 
     function displayStartingInfo(){
         const tedContainer = document.getElementById('tedCard');
@@ -265,3 +289,5 @@ function mainLoop() {
 };
 
 document.getElementById("startgame").addEventListener('click', mainLoop);
+
+document.getElementById("showDeckButton").addEventListener("click", globalThis(showDeck()));

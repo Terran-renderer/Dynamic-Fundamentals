@@ -10,30 +10,22 @@
 <body>
     <button id="startgame">STORT</button>
     <button id="spawnenemies">ENERMY</button>
-    
+    <button id="showDeckButton">Show Deck</button>
+
     <!-- Character Selection Screen -->
     <div id="cardStart">
         
-        <div id="tedCard">
-
-            <div id="tedStats"> 
-            </div>
-
-        </div>
-
-        <div id="joeCard">
-
-
-        </div>
-
-        <div id="legionCard">
-
-            <div id="legionStats">
-            </div>
-
-        </div>
+        <div id="tedCard"></div>
+        <div id="joeCard"></div>
+        <div id="legionCard"></div>
 
     </div>
+
+    <!-- Modal -->
+    <dialog id="deckModal">
+        <div id="modalDeck"></div>
+        <button id="closeModalButton">close</button>
+    </dialog>
 
     <!-- Character Stats Card -->
     <div id="mainCycle">
@@ -61,6 +53,5 @@
             <p id="log"></p>
         </div>
     </div>
-    <script src="script.js"></script>
 </body>
 </html>
