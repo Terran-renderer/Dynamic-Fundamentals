@@ -8,7 +8,7 @@ function mainLoop() {
         damage:20,
         gold:10,
         image:"img/tankkun.jpg",
-        deck: ["img/Heal.jpg", "img/punch.jpg", "img/flurry.jpg", "img/cast.jpg"]
+        deck: ["img/Killer-Whale.png", "img/Heal.jpg", "img/punch.jpg", "img/flurry.jpg", "img/cast.jpg"]
     };
 
     const Joe = { 
@@ -19,7 +19,7 @@ function mainLoop() {
         damage:120,
         gold:10,
         image:"img/assassain.jpg",
-        deck: ["img/Heal.jpg", "img/punch.jpg", "img/cast.jpg", "img/flurry.jpg", ]
+        deck: ["img/Heal.jpg", "img/punch.jpg", "img/punch.jpg", "img/flurry.jpg", "img/cast.jpg"]
     };
 
     const Legion = { 
@@ -30,7 +30,7 @@ function mainLoop() {
     damage: 30,
     gold:10,
     image:"img/legion.jpg",
-    deck: ["img/Heal.jpg", "img/punch.jpg", "img/flurry.jpg", "img/cast.jpg"]
+    deck: ["img/Heal.jpg", "img/punch.jpg", "img/flurry.jpg", "img/cast.jpg", "img/cast.jpg"]
     };
 
     const character = {
@@ -41,6 +41,7 @@ function mainLoop() {
             this.level += 1;
             this.damage += 20;
             displayCharacter();
+            console.log("BRUH!");
         },
         heal(){
             this.health += 20;
@@ -48,30 +49,49 @@ function mainLoop() {
         }
     };
 
+    let deck = [];
+
+    let hand = [];
+
+    let discard = [];
+
     function pickTed() {
         Object.assign(character, Ted);
-        console.log("Ted selected");
+        deck = shuffle([...character.deck]);
+        hand = [];
+        discard = [];
         showDeck();
         hideChoices();
         showCard();
         displayCharacter();
-        
-    };
+        drawHand(); 
+    }
+
 
     function pickJoe() {
         Object.assign(character, Joe); 
+        deck = shuffle([...character.deck]);
+        hand = [];
+        discard = [];
         console.log("Joe selected");
+        showDeck();
         hideChoices();
         showCard();
         displayCharacter();
+        drawHand();
     };
 
     function pickLegion() {
         Object.assign(character, Legion); 
+        deck = shuffle([...character.deck]);
+        hand = [];
+        discard = [];
         console.log("Legion selected");
+        showDeck();
         hideChoices();
         showCard();
         displayCharacter();
+        drawHand();
     };
 
     function showDeck(){
@@ -142,6 +162,7 @@ function mainLoop() {
                 <button id="legionButton">Choose Legion!</button>     
             `;
 
+        
         legionContainer.innerHTML = legionInfo;
 
         document.getElementById('tedButton').addEventListener('click', pickTed);
@@ -206,7 +227,7 @@ function mainLoop() {
         <div class="health">${enemy.health}</div>
         <img id="enemyImage" src="${enemy.image}">
         <div class="name">${enemy.name}</div>
-        <div id="stats">
+        <div id="enemyStats">
             <p><strong>Class: ${enemy.type}</strong></p>
             <p><strong>Level: ${enemy.level}</strong></p>
             <p><strong>Damage: ${enemy.damage}</strong></p>
@@ -245,8 +266,8 @@ function mainLoop() {
     function displayCharacter() {
         const container = document.getElementById('card');
         const characterInfo = `
-            <div class="health">${character.health}</div>
-            <img id="characterImage" src="${character.image}" alt="${character.name}">
+            <div class="healthMain">${character.health}</div>
+            <img id="characterImageMain" src="${character.image}" alt="${character.name}">
             <div class="name">${character.name}</div>
             <div id="stats">
                 <p><strong>Class: ${character.class}</strong></p>
@@ -255,8 +276,6 @@ function mainLoop() {
                 <p><strong>Gold: ${character.gold}</strong></p> 
             </div>
             <div class="buttons">
-                <button id="attacked">Attack</button>
-                <button id="heal">Heal</button>
                 <button id="levelup">Level Up</button>
             </div>
         `;
@@ -270,24 +289,79 @@ function mainLoop() {
 
     function levelCharacter(){
         character.levelUp();
-    }
+    };
 
     function healCharacter(){
         character.heal();
-    }
+    };
 
     function hideChoices() {
         const hide = document.getElementById("cardStart");
         hide.style.display = 'none';
-    }
+    };
 
     function showCard() {
         const show = document.getElementById("card");
         show.style.display = 'block';
+    };
+
+    function drawHand() {
+        hand = [];
+        const handContainer = document.getElementById("handContainer");
+        handContainer.innerHTML = "";
+
+        for (let i = 0; i < 4; i++) {
+            if (deck.length === 0 && discard.length > 0) {
+                deck = shuffle([...discard]);
+                discard = [];
+            }
+
+            if (deck.length > 0) {
+                const card = deck.pop(); 
+                hand.push(card);
+
+                const cardImg = document.createElement("img");
+                cardImg.src = card;
+                cardImg.alt = "Card";
+                cardImg.className = "card-image"; 
+                handContainer.appendChild(cardImg);
+
+                
+                cardImg.addEventListener('click', () => {
+                playCard(card);
+                });
+            }
+        }
+    };
+
+    function playCard(card) {
+        console.log("Played card:", card);
+        
+        const index = hand.indexOf(card);
+        if (index !== -1) {
+            hand.splice(index, 1);
+            discard.push(card);
+        }
+
+        drawHand();
     }
+
+    function shuffle(deck) {
+        for (let i = deck.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [deck[i], deck[j]] = [deck[j], deck[i]];
+        }
+        return deck;
+    }
+
+
+    function refillHand(){
+        deck[Math.floor(Math.random() * deck.length)]
+    };
+
     displayStartingInfo();
 };
 
 document.getElementById("startgame").addEventListener('click', mainLoop);
-
-document.getElementById("showDeckButton").addEventListener("click", globalThis(showDeck()));
+document.getElementById("showDeckButton").addEventListener("click", showDeck);
+document.getElementById("drawHand").addEventListener("click", drawHand);
