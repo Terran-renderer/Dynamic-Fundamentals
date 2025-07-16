@@ -7,15 +7,17 @@ body {
 /*CARD STYLES*/
 #card {
   grid-column: 1/2;
+  grid-row:1/2;
   background: #313131;
   border-radius: 15px;
   box-shadow: 0 8px 16px rgba(0,0,0,0.9);
-  width: 400px; 
-  margin: 100px auto;
+
 }
+
 #mainCycle{
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows:repeat(6, 500px);
 }
 #cardStart {
   display: grid;
@@ -53,8 +55,16 @@ body {
 }
 #characterImage{
   width: 400px;
+  grid-column: 1/3;
   border-radius: 15px 15px 0 0;
   max-height: 250x;
+  overflow: hidden;
+  }
+#characterImageMain{
+  width: 260px;
+  grid-column: 1/3;
+  border-radius: 15px 15px 0 0;
+  max-height: 200x;
   overflow: hidden;
   }
 .name {
@@ -69,6 +79,13 @@ body {
   position: absolute;
   margin-top: 15px;
   margin-left: 350px;
+  font-size: xx-large;
+  color: white;
+}
+.healthMain{
+  position: absolute;
+  margin-top: 15px;
+  margin-left: 210px;
   font-size: xx-large;
   color: white;
 }
@@ -104,14 +121,33 @@ button:hover {
 
 /*ENEMY*/
 #enemyCard {
-  grid-column: 2/3;
+  grid-column: 6/7;
   background: #313131;
   border-radius: 15px;
   box-shadow: 0 8px 16px rgba(0,0,0,0.9);
   width: 400px; 
   margin: 100px auto;
+  padding-bottom: 10px;
+  
 }
 #enemyImage{
   width: 400px;
+  grid-column: 1/3;
   border-radius: 15px 15px 0 0;
-  }
+  max-height: 250x;
+  overflow: hidden;
+}
+#enemyStats{
+  margin: 10px 15px 7px 35px;
+  text-align: left;
+    color: #f0f4f8;
+}
+
+/*HAND*/
+#handConatainer{
+  display: flex;
+}
+
+.cardInHand{
+  width:100px;
+}
